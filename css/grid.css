@@ -1,0 +1,368 @@
+:root {
+  --ease: cubic-bezier(0.63, 0.01, 0.08, 1);
+}
+
+.contenedor {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  /* Defines the grid template rows as 50% each and the columns as 2fr and 1fr */
+  grid-template: 50% 50% / 2fr 1fr;
+  /* transition: grid-template 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2.5s; */
+  overflow: hidden;
+}
+
+.bg_white {
+  background-color: white;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0em;
+  left: 0;
+  z-index: 99;
+  transition: opacity 0.2s var(--ease);
+}
+
+.col1 {
+  /* define starting row and column and then ending row and column: */
+  /* Set the grid area for the element starting from row 1, column 1, spanning 1 row and 2 columns */
+  grid-area: 1 / 1 / span 1 / span 2;
+  /* grid-column: 1 / span 2;
+  grid-row: 1 / 1; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  position: relative;
+  color: #0c3a57;
+}
+
+div.global,
+div.air,
+span.pollution {
+  font-size: 9vw; /* Changed from em to vw for responsiveness */
+  font-weight: 400;
+  position: absolute;
+  /* overflow: hidden; */
+  /* border: 1px solid red; */
+  -webkit-text-stroke-width: 0.1vw; /* Changed stroke width to be responsive */
+  -webkit-text-stroke-color: #3d3c3c;
+}
+
+div.global {
+  top: 7vh;
+  left: 25vw;
+  transform: translateX(-50%);
+}
+
+div.air {
+  left: 56vw;
+  top: 31vh;
+  transform: translateX(-50%);
+  /* padding: 0.2em 0; */
+  width: 100vw;
+  align-self: flex-end;
+  align-items: center;
+}
+
+span.pollution {
+  width: 100vw;
+  height: auto;
+  top: 0vh;
+  left: 53vw;
+  transform: translate(-50%, -50%); /* Center the circle */
+}
+
+/* span.pollution + span {
+  margin-left: 2.6em;
+} */
+
+span.circle {
+  position: absolute;
+  top: 1vh;
+  left: 5%;
+  transform: translate(-50%, -50%); /* Center the circle */
+  width: 11vmin; /* Make the circle responsive based on the viewport width */
+  height: 11vmin;
+  border-radius: 50%;
+  background-color: #0c3a57;
+  z-index: 9;
+}
+
+/* span.circle {
+  position: absolute;
+  left: 0%;
+  top: 35%;
+  width: 6%;
+  height: 43%;
+  border-radius: 50%;
+  background-color: #0c3a57;
+  z-index: 9;
+} */
+
+.ecosite {
+  font-size: 1.9vw;
+  font-weight: 400;
+  align-self: flex-start;
+  position: absolute;
+  right: 12vw;
+  top: 7.5vh;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  /* padding: 2em; */
+}
+
+.col2 {
+  /* grid-column: 1 / span 1;
+  grid-row: 2 / span 2; */
+  /* Set the grid area for the element starting at row 2, column 1, spanning 2 rows and 2 columns */
+  grid-area: 2 / 1 / span 2 / span 2;
+  /* overflow: hidden; */
+}
+
+.col3 {
+  /* grid-column: 2 / span 1;
+  grid-row: 2 / span 1; */
+  /* Set the grid area for the element starting at row 2, column 2, spanning 2 rows and 1 column */
+  grid-area: 2 / 2 / span 2 / span 1;
+  background-color: #0c3a57;
+  /* transform: translateY(-6em); */
+}
+
+.col2 .wrapper {
+  width: 100vw;
+  height: auto;
+  background: rgb(45, 51, 171);
+  transform: translateY(6vh);
+  transition: all 1s var(--ease);
+}
+
+.col2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.9;
+  padding-bottom: 0em;
+  object-position: 0vw -29vh;
+}
+
+.col3 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  /* display: flex; */
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  font-size: 1.8em;
+  z-index: 20;
+  clip-path: inset(0% 0% 0% 100%);
+  transition: all 1s cubic-bezier(0.895, 0.03, 0.685, 0.22) 1.5s;
+  /* border: 4px dotted red; */
+}
+
+.col3 ul {
+  width: auto;
+  list-style: none;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap; /* Ensures all li elements are displayed inline */
+  z-index: 99;
+  /* border: 4px dotted green; */
+}
+
+.col3 li {
+  color: white;
+  padding: 0.3em 0;
+  /* clip-path: inset(0% 0% 0% 100%); */
+  transition: clip-path 0.5s ease;
+  /* border: 4px dotted pink; */
+}
+
+.planet li span {
+  display: inline-block;
+  fill: white;
+  font-weight: 400;
+  letter-spacing: -0.2em;
+  /* white-space: pre; Ensures text does not wrap */
+  /* word-spacing: 0.2em; */
+  animation: wave 2s ease-in-out infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.col3 svg#svg1,
+.col3 svg#svg2,
+.col3 svg#svg3 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the SVG horizontally */
+}
+
+.col3 svg#svg1 {
+  top: 10%;
+}
+
+.col3 svg#svg2 {
+  top: 20%;
+}
+
+.col3 svg#svg3 {
+  top: 30%;
+}
+
+.col3 svg#svg1 textPath,
+.col3 svg#svg2 textPath,
+.col3 svg#svg3 textPath {
+  /* font-size: 2em; */
+  /* These properties can only be applied in the textpath in the html */
+  /* lengthadjust: "spacingAndGlyphs"; Adjusts spacing and glyph size to fit the path length */
+  /* textlength: 100%; Ensures the text spans the full length of the path */
+}
+
+.save path {
+  fill: transparent;
+  stroke-width: 0; /* Ensures the path itself is not visible, only the text */
+}
+
+.save text textPath tspan {
+  display: inline-block;
+  fill: white;
+  font-size: 2vw;
+  white-space: pre; /* Ensures text does not wrap */
+  letter-spacing: 0em;
+  word-spacing: 0.2em;
+  font-weight: 600;
+}
+
+text {
+  animation: wave 1s ease-in-out infinite;
+  animation-delay: calc(0.05s * var(--i));
+  display: inline-block;
+}
+
+.path-decor {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 9vh;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+  animation: scribble 1s ease-in-out infinite;
+  transition: all 1s 3.2s ease-out;
+}
+
+.path-decor path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1; /* WILL CHANGE ANIMATION */
+  stroke-linecap: round;
+  transition: stroke-dashoffset 2s var(--ease);
+}
+
+/* _______________________ ANIMATION ___________________ */
+/* _______________________ ANIMATION ___________________ */
+.animateIn {
+  /* grid-template: 50% 50% / 2fr 1fr; */
+}
+
+.animateIn .bg_white {
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+.animateIn .col1 {
+}
+
+.animateIn .col2 {
+}
+
+.animateIn .wrapper {
+  transform: translateY(0vh);
+}
+
+.animateIn .col2 img {
+}
+
+.animateIn .col3 {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.animateIn .col3 ul {
+}
+
+.animate .col3 li {
+  clip-path: inset(0% 0% 0% 0%);
+  /* transition: clip-path 0.5s ease; */
+}
+
+.animateIn .path-decor {
+  top: 9vh;
+  /* bottom: -13rem; */
+  /* bottom: -15vmin; */
+  /* transition: all 1s 3.2s ease-out; */
+}
+
+.animateIn .path-decor path {
+  stroke-dashoffset: 0;
+}
+
+/* text wave animation */
+@keyframes wave {
+  0% {
+    transform: translateY(0em);
+  }
+  60% {
+    transform: translateY(-0.6em);
+  }
+  100% {
+    transform: translateY(0em);
+  }
+}
+
+@keyframes scribble {
+  0% {
+    transform: translateY(0em);
+  }
+  60% {
+    transform: translateY(-0.2em);
+  }
+  100% {
+    transform: translateY(0em);
+  }
+}
+
+@keyframes wavyEffect {
+  0% {
+    filter: url(#displacementFilter);
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    filter: url(#displacementFilter);
+    transform: translateX(-2px) translateY(2px);
+  }
+  50% {
+    filter: url(#displacementFilter);
+    transform: translateX(2px) translateY(-2px);
+  }
+  75% {
+    filter: url(#displacementFilter);
+    transform: translateX(2px) translateY(2px);
+  }
+  100% {
+    filter: url(#displacementFilter);
+    transform: translateX(0) translateY(0);
+  }
+}
+
+/* .animateIn .path-decor {
+  animation: wavyEffect 3s infinite;
+} */
